@@ -4,7 +4,7 @@ title: "First Day of Xmas"
 date: "2020-12-24 23:59"
 ---
 
-On the first day of Xmas my nerdy love led to me ... writing [https://github.com/Cervator/KubicArk](KubicArk) - a Kubernetes hosting setup for ARK!
+On the first day of Xmas my nerdy love led to me ... writing [https://github.com/Cervator/KubicArk](https://github.com/Cervator/KubicArk) - a Kubernetes hosting setup for ARK!
 
 This isn't very [Terasology](https://terasology.org)-related, but it will be eventually. This helps set the stage, with some fun discoveries and experimentation!
 
