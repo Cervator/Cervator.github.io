@@ -4,15 +4,13 @@ title: "First Day of Xmas"
 date: "2020-12-24 23:59"
 ---
 
-# On the first day of Xmas ...
-
-My nerdy love led to me ... writing https://github.com/Cervator/KubicArk
+On the first day of Xmas my nerdy love led to me ... writing [https://github.com/Cervator/KubicArk](KubicArk) - a Kubernetes hosting setup for ARK!
 
 This isn't very [Terasology](https://terasology.org)-related, but it will be eventually. This helps set the stage, with some fun discoveries and experimentation!
 
 ## Why ARK
 
-[ARK: Survival Evolved](https://store.steampowered.com/app/346110/ARK_Survival_Evolved/) is a fair game with a somewhat troubled past at times. Can't argue against it not being popular for sure, but opinions vary.
+[ARK: Survival Evolved](https://store.steampowered.com/app/346110/ARK_Survival_Evolved/) is a fairly decent game with a somewhat troubled past at times. Can't argue against it not being popular though, but opinions vary.
 
 Something with it clicked with me and I've played it a fair bit over the years. A lot of the creature related systems really hit the spot for gameplay I'd like to see in Terasology as well.
 
@@ -55,7 +53,7 @@ Ultimately if you make it to a transfer-point in-game you'll be able to see a li
 Transferring itself is fairly straight forward and remarkably simple, focused around the configured file share.
 
 * You can "upload" creatures without anything in their inventory (a saddle is allowed)
-* You can upload *most* items, or maybe that's just a thing in [PixARK[(https://store.steampowered.com/app/593600/PixARK/)] - the pixellated Minecraft-style cousin of ARK
+* You can upload *most* items, or maybe that's just a thing in [PixARK](https://store.steampowered.com/app/593600/PixARK/) - the pixellated Minecraft-style cousin of ARK
 * You can upload your character itself and immediately auto-login to a target server, assuming you're not carrying any forbidden items (usually unique, event, or end-game)
 
 From any map transfer station you can re-download creatures, items, or even yourself if something goes wrong mid-transfer leaving you in a limbo state "in the network" - this is to keep your character safe if you do not finish the respawning process on the target server.
@@ -79,7 +77,7 @@ So - the game setup is both fairly complex yet fundamentally also pretty basic. 
 
 To improve this process and also learn a bunch about Kubernetes (k8s) ahead of taking a couple certification exams (passed, huzzah!), I set out to try this in a better way using the dark magic hosting tech everybody is supposed to use these days, fun! Containers everywhere! 
 
-The initial result lives at https://github.com/Cervator/KubicArk, works, and is fairly well documented I'd like to think. As of writing this it is set up to just run two separate maps (there are nearly 10 available), and can run out of the box in about 15-20 minutes on a fresh Kubernetes cluster, to where you can start the game, join either server, and travel to the other successfully. Not bad!
+The initial result lives at [https://github.com/Cervator/KubicArk](https://github.com/Cervator/KubicArk), works, and is fairly well documented I'd like to think. As of writing this it is set up to just run two separate maps (there are nearly 10 available), and can run out of the box in about 15-20 minutes on a fresh Kubernetes cluster, to where you can start the game, join either server, and travel to the other successfully. Not bad!
 
 It heavily leverages k8s config maps to take the place of _physical_ files - you never touch a single config file directly. And these config maps work at two layers, a global set that applies to _all_ maps in the cluster (no more copy pasting for every server!), then a local set for unique settings, if any.
 
@@ -91,14 +89,14 @@ When a set of resource files are applied to spin up a server the various config 
 
 If at any point a config change is needed it can be edited in-place or updated in Git, with the resources re-applied. This will simply destroy and recreate the pod holding the server, reattaching to its persistent volume for game data.
 
-This means server processes can be treated as [cattle, not pets](http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/) with the separation between logic and game data. Backups and restores become trivial, as do game server version updates (aided further by using an ARK manager tool on a given server)
+This means server processes can be treated as [cattle, not pets](http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/) with the separation between logic and game data. Backups and restores become trivial, as do game server version updates (aided further by using an ARK manager tool on a given server), or even replacing the entire OS.
 
 Oh, and you don't actually need to keep the server part online all the time, as long as the volume sticks around and you can trigger a server recreation easily ...
 
 
 ## Future extensions
 
-This brings us through the present to the precipice of the future. Another drawback of current game server hosting providers can be the simple setup and billing for individual services, lag caused by manual customer support, and just the sheer cost of having services sit around you might use a few hours a week.
+This brings us through the present to the precipice of the future. Another drawback of current game server hosting providers can be simply the setup and billing for individual services, lag caused by manual customer support, and just the sheer cost of having services sit around you might use a few hours a week.
 
 What if the servers could just turn themselves off and back on again when needed?
 
