@@ -4,9 +4,9 @@ title: "Fourth Day of Xmas"
 date: "2020-12-27 23:59"
 ---
 
-_Post series - [part one](2020-12-24-1st-day-of-Xmas.md), [part two](2020-12-25-2nd-day-of-Xmas.md), [part three](2020-12-26-3rd-day-of-Xmas.md), **part four**_
-
 On the fourth day of Xmas I went a bit insane ...
+
+_Post series - [part one](2020-12-24-1st-day-of-Xmas.md), [part two](2020-12-25-2nd-day-of-Xmas.md), [part three](2020-12-26-3rd-day-of-Xmas.md), **part four**_
 
 If it wasn't clear from the third part of this blog series a lot of this stuff is forecast quite a ways in the future, if ever - this part in particular really tries to **suggest** a possible vision for the _second decade_ of Terasology and our organization overall (the _long_ long-term). Which does start in less than a year, but certainly we should keep the focus on stability and content going to at least, and beyond too, really :-)
 

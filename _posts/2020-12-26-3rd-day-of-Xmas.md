@@ -4,9 +4,9 @@ title: "Third Day of Xmas"
 date: "2020-12-26 23:59"
 ---
 
-_Post series - [part one](2020-12-24-1st-day-of-Xmas.md), [part two](2020-12-25-2nd-day-of-Xmas.md), **part three**, [part four](2020-12-27-4th-day-of-Xmas.md)_
-
 On the third day of Xmas I wrote a bunch of stuff!
+
+_Post series - [part one](2020-12-24-1st-day-of-Xmas.md), [part two](2020-12-25-2nd-day-of-Xmas.md), **part three**, [part four](2020-12-27-4th-day-of-Xmas.md)_
 
 Unlike the first two blog entries in this series, on [KubicArk](https://github.com/Cervator/KubicArk) and [KubicTerasology](https://github.com/Cervator/KubicTerasoloy) there's now no code to look at - this is all design. This part is mid-term'ish (in a long term sense, of sorts)
 

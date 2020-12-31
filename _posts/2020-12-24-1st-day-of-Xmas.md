@@ -4,9 +4,9 @@ title: "First Day of Xmas"
 date: "2020-12-24 23:59"
 ---
 
-_Post series - **part one**, [part two](2020-12-25-2nd-day-of-Xmas.md), [part three](2020-12-26-3rd-day-of-Xmas.md), [part four](2020-12-27-4th-day-of-Xmas.md)_ 
-
 On the first day of Xmas my nerdy love led to me ... writing [https://github.com/Cervator/KubicArk](https://github.com/Cervator/KubicArk) - a Kubernetes hosting setup for ARK!
+
+_Post series - **part one**, [part two](2020-12-25-2nd-day-of-Xmas.md), [part three](2020-12-26-3rd-day-of-Xmas.md), [part four](2020-12-27-4th-day-of-Xmas.md)_
 
 This isn't very [Terasology](https://terasology.org)-related, but it will be eventually. This helps set the stage, with some fun discoveries and experimentation!
 
