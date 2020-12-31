@@ -4,6 +4,8 @@ title: "Third Day of Xmas"
 date: "2020-12-26 23:59"
 ---
 
+_Post series - [part one](2020-12-24-1st-day-of-Xmas.md), [part two](2020-12-25-2nd-day-of-Xmas.md), **part three**, [part four](2020-12-27-4th-day-of-Xmas.md)_
+
 On the third day of Xmas I wrote a bunch of stuff!
 
 Unlike the first two blog entries in this series, on [KubicArk](https://github.com/Cervator/KubicArk) and [KubicTerasology](https://github.com/Cervator/KubicTerasoloy) there's now no code to look at - this is all design. This part is mid-term'ish (in a long term sense, of sorts)
@@ -62,9 +64,9 @@ So - how could we finish multi-world? Possibly in a radically different way, bui
 
 ### Separated engine sub-systems
 
-Sometimes large batches of really cool and awesome code just appear as if out of nowhere. That was the case when DarkWeird recently started churning out engine-subsystems as a new "item" type in the engine repo. This follows [a similar suggestion from 2017](https://forum.terasology.org/threads/architecture-discussion-for-v3-engine-split-engine-libs.1897/#post-15190) (great minds think alike?) which I think didn't make it past the design stage originally due to lower priority (again, no content relation - although a potentially vast improvement to overall code quality).
+Sometimes large batches of really cool and awesome code just appear as if out of nowhere. That was the case [when DarkWeird recently started churning out engine-subsystems](https://github.com/MovingBlocks/Terasology/pulls?q=is%3Apr+subsystem+author%3ADarkWeird) as a new "item" type in the engine repo. This follows [a similar suggestion from 2017](https://forum.terasology.org/threads/architecture-discussion-for-v3-engine-split-engine-libs.1897/#post-15190) (great minds think alike?) which I think didn't make it past the design stage originally due to lower priority (again, no content relation - although a potentially vast improvement to overall code quality).
 
-In short moving the sub-systems from being _sub-packages_ to their own sub-project item akin to modules, but all still embedded in the engine repo, allows for benefits mentioned in that thread like improved API surfaces, smaller code sets to write tests for, better encapsulation, and so on.
+In short moving the sub-systems from being _sub-packages_ to their own sub-project item akin to modules, but all still embedded in the engine repo, allows for benefits mentioned in that thread like improved API surfaces, smaller code sets to write tests for, better encapsulation, and so on. It also helps address a move away from `CoreRegistry`
 
 Exactly where this will go and how fast is still to be seen, but I'm thrilled it is happening, and it helps feed into some other long term desired improvements and some further ideas :-)
 
@@ -101,11 +103,11 @@ While you may still need to _start_ with everything organized by a single proces
 
 ### Kubernetes facade for subsystems-as-pods
 
-It may well sound a tad awkward trying to support multiple processes in the regular game client, and honestly it probably would be - it really is just a shortcut to scenario 2 below.
+It may well sound a tad awkward trying to support multiple processes in the regular game client, and honestly it probably would be - it really is just a shortcut to the dedicated server hosting scenarios below.
 
 At some point there's probably a cutoff to the amount of stuff you'd want to cram into a game client, creating a truly dedicated server instead, that may differ vs the client bit. Facades and subsystems allow us to do that in a nicely modular way.
 
-1. A single player who just wants to play the game, with any server/client mumbo-jumbo figured out completely seamlessly. Here we've still arrived at a higher code quality level by splitting apart single player to always use a client+server (and possibly servers, if multiple worlds are enabled)
+1. A single player who just wants to play the game, with any server/client mumbo-jumbo figured out completely seamlessly. Here we've still arrived at a higher code quality level by splitting apart single player to always use a client+server(s if multi-world enabled)
 1. Somebody wants to host one or more worlds headlessly and have clients connect externally. This is the typical approach, and would work nice and cleanly à la ARK - the special part just being each server hosts one world 
 1. The new school way of containerizing everything: run each server/world in a Kubernetes pod, gain all the benefits noted in the first two blogs in this series, _and_ open the future to what other systems might host in pods vs a monolithic application
 

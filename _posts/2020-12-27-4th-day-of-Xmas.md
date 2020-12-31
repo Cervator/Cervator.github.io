@@ -4,9 +4,11 @@ title: "Fourth Day of Xmas"
 date: "2020-12-27 23:59"
 ---
 
+_Post series - [part one](2020-12-24-1st-day-of-Xmas.md), [part two](2020-12-25-2nd-day-of-Xmas.md), [part three](2020-12-26-3rd-day-of-Xmas.md), **part four**_
+
 On the fourth day of Xmas I went a bit insane ...
 
-If it wasn't clear from the third part of this blog series a lot of this stuff is forecast quite a ways in the future, if ever - this part in particular really tries to **suggest** a possible vision for the _second decade_ of Terasology and our organization overall. Which does start in less than a year, but certainly we should keep the focus on stability and content going to at least, and beyond too, really :-)
+If it wasn't clear from the third part of this blog series a lot of this stuff is forecast quite a ways in the future, if ever - this part in particular really tries to **suggest** a possible vision for the _second decade_ of Terasology and our organization overall (the _long_ long-term). Which does start in less than a year, but certainly we should keep the focus on stability and content going to at least, and beyond too, really :-)
 
 
 ### Portals and the void
@@ -39,7 +41,7 @@ In past GSOCs we attempted Sector and Universe - and still have _some_ functiona
 
 If a single _Kubernetes_ cluster can host a bunch of game services, and an arbitrary number of worlds, all in parallel and scaling to additional server nodes, then that's effectively the universe layer. Everything in that Kubernetes _and_ game cluster is really one grouping of game things.
 
-You could go beyond that in additional namespaces or even other Kubernetes clusters, or alternative ways to host the game services. With server-transfer being the same as world-transfer there's really no difference between swapping worlds in your local cluster vs some friend's remote cluster. Just more definitions of where to find things (think cloud-backed file share storage for inter-cluster data transfer), presenting metadata on destinations you can travel to like rulesets, moderation, etc. 
+You could go beyond that in additional namespaces or even other Kubernetes clusters, or alternative ways to host the game services. With server-transfer being the same as world-transfer there's really no difference between world travel in your local cluster vs to some friend's remote cluster. Just more definitions of where to find things (think cloud-backed file share storage for inter-cluster data transfer), presenting metadata on destinations you can travel to like rulesets, moderation, etc. 
 
 That may present a challenge if different modules are enabled within different server groupings. Much like how an ARK server may have mods enabled while another in its cluster does not. But since the transfer happens via simple text files in a file share, you don't run into any sort of syntax errors. You _may_ end up with data (like unknown components) a target server has no idea what to do with. I'm sure there are solutions for that, like checking your JoshariasSurvival powertools at the door if you're entering a server running MetalRenegades, potentially reattaching those extra components on your way back.
 
@@ -52,14 +54,14 @@ Hold up. If you can transfer between servers running different _modules_ by virt
 
 Is it really a stretch to use the same approach to literally jump from a Terasology world to a 2D spaceship taking off from a ground base on a planet in Destination Sol? Which could well represent a 2D lower detail version _of_ that Terasology world, but from space? You'd just have to leave more incompatible things behind. You won't need your pickaxe while flying a spaceship - although maybe you could pull it back out if you land on an asteroid, so long as you also acquire a spacesuit. If the minerals you mine are the same in both games does it really matter where they came from? Could flying a spaceship in DS between planets be another way to travel between Terasology worlds?
 
-At some point to make such a transfer meaningful you'd probably need to build in _some_ sensible translation layer for more than just whichever components happen to exist in both games. Maybe your 3D avatar in Terasology should have a 2D profile picture generated which could be shown on an info panel for a spaceship you're flying in DS. If not then at some point you'd probably be just duplicating the lobby systems like battle.net or your Steam profile or some system avatar on a Wii. It needs to be more than that for sure.
+At some point to make such a transfer meaningful you'd probably need to build in _some_ sensible translation layer for more than just whichever components happen to exist in both games. Maybe your 3D avatar in Terasology should have a 2D profile picture generated which could be shown on an info panel for a spaceship you're flying in DS. If not then at some point you'd probably just be duplicating the lobby systems like battle.net or your Steam profile or some system avatar on a Wii. It needs to be more than that for sure.
 
 Additionally, it is one thing to change world in Terasology, you're still talking the same engine, with a set of modules, facades, etc. But wait a minute - haven't we been talking about a `gestalt-engine` for some time now? And we can already hotswap things like assets in modules? Other than immense effort for a fairly crazy concept this seems like it should be technically feasible - although I for sure wouldn't want to defend it as an investment to a corporate board. Oh hey, there's one of those potential advantages a large open source project may have over a commercial entity ... even if it might take us a century to do it ;-)
 
 
 ## The OASIS
 
-Does that cross-game talk sound familiar to anybody, perhaps for readers of [Ready Player One](https://en.wikipedia.org/wiki/Ready_Player_One) or likely a slew of fictional literature like it?
+Does that cross-game talk sound familiar to anybody, perhaps for readers of [Ready Player One](https://en.wikipedia.org/wiki/Ready_Player_One) or likely a slew of fictional literature similar to it?
 
 Now, realizing all this in virtual reality with full-body haptic suits and other crazy tech might be a tad out of our reach, but transferring between entire game settings within a single universe (or meta-verse, or multi-verse ... we might need to do some bikeshedding here!), that might actually be doable. Perhaps even within our second decade, particularly if we can actually pull off the stabilization and content-focus to actually have a substantial player base _for_ our second decade.
 

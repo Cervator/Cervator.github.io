@@ -4,6 +4,8 @@ title: "Second Day of Xmas"
 date: "2020-12-25 23:59"
 ---
 
+_Post series - [part one](2020-12-24-1st-day-of-Xmas.md), **part two**, [part three](2020-12-26-3rd-day-of-Xmas.md), [part four](2020-12-27-4th-day-of-Xmas.md)_
+
 On the second day of Xmas my nerdy love led to me ... writing [https://github.com/Cervator/KubicTerasology](https://github.com/Cervator/KubicTerasology) - unsurprisingly a Kubernetes hosting setup for Terasology now!
 
 After the first blog entry on [KubicArk](https://github.com/Cervator/KubicArk) this 2nd one is probably fairly obvious, and there isn't _that_ much to share which isn't already covered. But still, not every blog entry has to be a *huge* wall of text, some can be small'ish walls of text!
@@ -13,7 +15,7 @@ After the first blog entry on [KubicArk](https://github.com/Cervator/KubicArk) t
 
 Much like with KubicARK the fundamental purpose here simply is being able to easily spin up a Terasology game server in Kubernetes, even managing several with different configuration just as easily.
 
-For the Terasology community setting up servers more easily and quickly would help in a variety of ways, from maintaining official long-lived servers, spinning up a play test server real quick, or even running an ad-hoc test using a game zip from a PR build (although TODO: Actually let this work with modules ...)
+For the Terasology community setting up servers more easily and quickly would help in a variety of ways, from maintaining official long-lived servers, spinning up a play test server real quick, or even running an ad-hoc test using a game zip from a PR build (although TODO: Actually make that work with modules ...)
 
 Before getting ChatOps working a simple job in Jenkins able to use a Kubernetes credential to allow it access into the parent cluster would then be able to execute a few commands (even partially provided by job parameters) and a server should be available in a few minutes.
 

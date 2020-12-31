@@ -4,9 +4,12 @@ title: "First Day of Xmas"
 date: "2020-12-24 23:59"
 ---
 
+_Post series - **part one**, [part two](2020-12-25-2nd-day-of-Xmas.md), [part three](2020-12-26-3rd-day-of-Xmas.md), [part four](2020-12-27-4th-day-of-Xmas.md)_ 
+
 On the first day of Xmas my nerdy love led to me ... writing [https://github.com/Cervator/KubicArk](https://github.com/Cervator/KubicArk) - a Kubernetes hosting setup for ARK!
 
 This isn't very [Terasology](https://terasology.org)-related, but it will be eventually. This helps set the stage, with some fun discoveries and experimentation!
+
 
 ## Why ARK
 
@@ -41,7 +44,7 @@ The various configuration options can be applied in a mish-mash of different con
 
 Some game server hosters expose all the files, others provide UI configurators, or a mix thereof. Access is often limited to a web control panel à la basic web hosting with maybe limited file browsing or FTP access.
 
-If you host yourself you're additionally on the hook for making sure all the right ports are exposed through routers and firewalls, let alone any sort of LAN quirks.
+If you host yourself you're additionally on the hook for making sure all the right ports are exposed through routers and firewalls, let alone any sort of LAN quirks if you try to host locally.
 
 Finally with everything configured seemingly right each server is still an entirely independent monolith with all its own data. Each server must be managed independently, logged into independently, and so on. Typical Steam quirks apply (the server listing through Steam may or may not work, friend invites likewise, in-game server listings may differ..)
 
@@ -52,17 +55,17 @@ Ultimately if you make it to a transfer-point in-game you'll be able to see a li
 
 Transferring itself is fairly straight forward and remarkably simple, focused around the configured file share.
 
-* You can "upload" creatures without anything in their inventory (a saddle is allowed)
+* You can "upload" creatures without anything in their inventory (an equipped saddle is allowed)
 * You can upload *most* items, or maybe that's just a thing in [PixARK](https://store.steampowered.com/app/593600/PixARK/) - the pixellated Minecraft-style cousin of ARK
 * You can upload your character itself and immediately auto-login to a target server, assuming you're not carrying any forbidden items (usually unique, event, or end-game)
 
 From any map transfer station you can re-download creatures, items, or even yourself if something goes wrong mid-transfer leaving you in a limbo state "in the network" - this is to keep your character safe if you do not finish the respawning process on the target server.
 
-The way this works is via basic text files being written to the file share, describing whatever object was saved to the network. When such an object is downloaded it is recreated fresh on the target server, with some limited loss of things like inventory folders (for optional organizing of items), active buffs, and so on. I forget if active gestation transfers in a living being ..
+The way this works is via basic text files being written to the file share, describing whatever object was saved to the network. When such an object is downloaded it is recreated fresh on the target server, with some limited loss of things like inventory folders (for optional organizing of items), active buffs, an active breeding process (gestation) and so on.
 
-In other words it is almost like a serialization & deserialization process, using the fileshare as a transfer point, instead of anything more complicated like a direct transfer byte by byte between two live servers talking over a network. The network share is a safe checkpoint - first atomic removal from one server, storage in the midpoint, then asynchronous recreation in the target when needed.
+In other words it is almost like a serialization & deserialization process, using the fileshare as a transfer point, instead of anything more complicated like a direct transfer byte by byte between two live servers talking over a network. The network share is a safe checkpoint - first an atomic move from the origin service to file storage in the midpoint, then asynchronous recreation in the target when needed.
 
-With admin access this can naturally be abused, as you can mess with the files directly, duplicate things, and so on. Plus the share could be lost or have files go corrupted. So far I haven't seen this happen, and duplication has been accidental between server backups - having transferred objects off one map then later ended up restoring a backup where said objects were still present.
+With admin access this can naturally be abused, as you can mess with the files directly, duplicate things, and so on. Plus the share could be lost or have files go corrupt. So far I haven't seen this happen, and duplication has been accidental between server backups - having transferred objects off one map then later ended up restoring a backup where said objects were still present.
 
 Both objects _and players_ can end up in several places at once which doesn't bother the game in the slightest. On the flipside tribe establishment doesn't transfer or sync at all, meaning you have to recreate on each map, and each such tribe is technically unique.
 
@@ -77,7 +80,7 @@ So - the game setup is both fairly complex yet fundamentally also pretty basic. 
 
 To improve this process and also learn a bunch about Kubernetes (k8s) ahead of taking a couple certification exams (passed, huzzah!), I set out to try this in a better way using the dark magic hosting tech everybody is supposed to use these days, fun! Containers everywhere! 
 
-The initial result lives at [https://github.com/Cervator/KubicArk](https://github.com/Cervator/KubicArk), works, and is fairly well documented I'd like to think. As of writing this it is set up to just run two separate maps (there are nearly 10 available), and can run out of the box in about 15-20 minutes on a fresh Kubernetes cluster, to where you can start the game, join either server, and travel to the other successfully. Not bad!
+The initial result lives at [https://github.com/Cervator/KubicArk](https://github.com/Cervator/KubicArk), works, and is fairly well documented I'd like to think. As of writing this it is set up to just run two separate maps (there are around 10 officially available), and can run out of the box in about 15-20 minutes on a fresh Kubernetes cluster, to where you can start the game, join either server, and travel to the other successfully. Not bad!
 
 It heavily leverages k8s config maps to take the place of _physical_ files - you never touch a single config file directly. And these config maps work at two layers, a global set that applies to _all_ maps in the cluster (no more copy pasting for every server!), then a local set for unique settings, if any.
 
@@ -89,7 +92,7 @@ When a set of resource files are applied to spin up a server the various config 
 
 If at any point a config change is needed it can be edited in-place or updated in Git, with the resources re-applied. This will simply destroy and recreate the pod holding the server, reattaching to its persistent volume for game data.
 
-This means server processes can be treated as [cattle, not pets](http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/) with the separation between logic and game data. Backups and restores become trivial, as do game server version updates (aided further by using an ARK manager tool on a given server), or even replacing the entire OS.
+This means server processes can be treated as [cattle, not pets](http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/) with the separation between logic and game data. Backups and restores become trivial, as do game server version updates (aided further by using an [ARK manager tool](https://github.com/arkmanager/ark-server-tools) on a given server), or even replacing the entire OS.
 
 Oh, and you don't actually need to keep the server part online all the time, as long as the volume sticks around and you can trigger a server recreation easily ...
 
@@ -100,7 +103,7 @@ This brings us through the present to the precipice of the future. Another drawb
 
 What if the servers could just turn themselves off and back on again when needed?
 
-Kubernetes again makes this trivial! One of the next steps will be to run a simple [cron](https://en.wikipedia.org/wiki/Cron) (either of the k8s variety or on the individual server pods) job that checks on server activity, and if a server isn't active any more (no player activity for x minutes) then blow it up! You don't need to keep it online forever, and any gameplay content that's enhanced heavily by copious amount of unattended server time just seems like grind that should be refactored anyway, and an irresponsible waste of computing resources (and therefore electricity) 
+Kubernetes again makes this trivial! One of the next steps will be to run a simple [cron](https://en.wikipedia.org/wiki/Cron) (either of the k8s variety or on the individual server pods) job that checks on server activity, and if a server isn't active any more (no player activity for x minutes) then scale its deployment to zero! You don't need to keep it online forever, and any gameplay content that's enhanced heavily by copious amount of unattended server time just seems like grind that should be refactored anyway, as well as being an irresponsible waste of computing resources (and therefore electricity) 
 
 For ARK, which is a commercial closed-source game with _some_ amount of modding possibly there's no inherent ability for a server to bring itself back online automatically, although an old coworker of mine had a brilliant home router setup where if a statically defined server list in a game was queried the packet trying to reach a downed game server would trigger a process that would start the server and it would be available if you refreshed a few minutes later. For ARK the server just likely would never show up nor get queried - although maybe, via Steam server list.
 
@@ -111,3 +114,16 @@ At a likely high time efficiency (number of minutes online with and without play
 Other potential options include maintenance operations (trigger upgrades, add new players to the whitelist, etc) and admin commands (trigger events, kick users, chat from outside the game). Sometimes you have to navigate awkward web consoles or be in-game and escalated as an admin to do those things.
 
 And that's just ARK - a closed source game. There are many others that could get the same treatment here for easier and cheaper gaming communities. But what if a game was literally built to take advantage of such things? For that we'll have to wait for the next day of Xmas, although one quick teaser would be a button inside the Terasology join game UI that would trigger the startup of a given server, or perhaps better options to trigger server testing via pull requests on GitHub ...
+
+
+# Additional technical details
+
+To not leave this blog entry _entirely_ bereft of images, here's a technical diagram of the setup!
+
+![KubernetesDiagram](images/ArkFuns.png "KubernetesDiagram")
+
+Key parts are how the config maps turn into files that in turn get copied to appropriate resting places on the system. I had some trouble being able to use symbolic links or redirecting the game to a specific file, so in the end making an init container copy the files (after potentially splicing them together with global + local config) was the easier way to go.
+
+There are three volumes involved, two actual ones and the config maps-as-files. The main bulk of storage goes to the game files under the Content directory, which could probably be mapped in a shared way to *all* cluster members to save space (and money on hosting costs) but that would take some attentional work and care (during upgrades only let one server run the upgrade with all others offline).
+
+All resources can be applied to the cluster, then just the deployments scaled to either 0 or 1. The associated services use NodePorts to expose the server to the web using a unique port defined in config, then the IP of any k8s node plus that port will connect. Keeping a domain pointing at a node would give more stability yet. LoadBalancers were tried but would add cost and caused connectivity issues anyway.
