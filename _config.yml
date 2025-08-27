@@ -103,8 +103,8 @@ analytics:
 author:
   name             : "Rasmus 'Cervator' Praestholm"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "DevOps Viking"
-  location         : "Dallas, TX, USA"
+  bio              : "DevOps Viking & Occasional IT Consultant"
+  location         : "West Orange, NJ, USA"
   email            : "cervator@gmail.com"
   links:
     - label: "Email"
