@@ -102,8 +102,8 @@ analytics:
 # Site Author
 author:
   name             : "Rasmus 'Cervator' Praestholm"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "DevOps Viking & Occasional IT Consultant"
+  avatar           : "/assets/cervatar.png"
+  bio              : "DevOps Viking & Occasional IT Consultant. Day job at Nvidia, occasional small-time IT on the side with own company Nanoware."
   location         : "West Orange, NJ, USA"
   email            : "cervator@gmail.com"
   links:
