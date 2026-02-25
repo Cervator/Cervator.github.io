@@ -20,8 +20,8 @@ title                    : "The Silicon Saga"
 title_separator          : "-"
 name                     : "Rasmus 'Cervator' Praestholm"
 description              : "The arbitrary blog of Rasmus 'Cervator' Praestholm's journey through the lands of silicon."
-url                      : "cervator.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+url                      : "https://siliconsaga.net"
+baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : Cervator/Cervator.github.io
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
