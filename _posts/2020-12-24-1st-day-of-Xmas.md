@@ -120,7 +120,7 @@ And that's just ARK - a closed source game. There are many others that could get
 
 To not leave this blog entry _entirely_ bereft of images, here's a technical diagram of the setup!
 
-![KubernetesDiagram](images/ArkFuns.png "KubernetesDiagram")
+![KubernetesDiagram](/assets/images/ArkFuns.png "KubernetesDiagram")
 
 Key parts are how the config maps turn into files that in turn get copied to appropriate resting places on the system. I had some trouble being able to use symbolic links or redirecting the game to a specific file, so in the end making an init container copy the files (after potentially splicing them together with global + local config) was the easier way to go.
 

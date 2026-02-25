@@ -18,7 +18,7 @@ This brings up a larger conversation about AI in open source. I want to fully ac
 
 As part of this new effort, I will be [joining a talk with the Brokk team](https://www.linkedin.com/posts/buildwithbrokk_tune-in-this-thursday-at-300pm-pst-for-our-activity-7431835259094069248-Mgbs?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAOu_YBo7bZCFbW1694CpZ4q6AjoVbeETs) soon to chat about agentic engineering! As a quick disclaimer: I started working at Nvidia (through TEKsystems, as a contractor) nearly a year ago. It has been an incredible adventure that has led to many valuable experiences I can apply to my OSS life. But to be clear — that is purely a coincidence 😅 I do not officially represent anything Nvidia on this upcoming call. 
 
-![Brokk Talk](images/brokk-talk.jpg)
+![Brokk Talk](/assets/images/brokk-talk.jpg)
 
 I have been wanting to better prepare Terasology for AI, specifically picking up the awesome [Dependency Injection overhaul that BSA started](https://github.com/MovingBlocks/Terasology/pull/5299), which I fed to [Google's Antigravity IDE](https://antigravity.google/). And then, well, [it fixed some things](https://github.com/MovingBlocks/Terasology/pull/5304)! I was impressed, but the branch also ended up a huge mess — nicely illustrating the potential for "AI noise".
 
