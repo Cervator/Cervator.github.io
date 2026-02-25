@@ -1,7 +1,7 @@
 ---
 layout: "posts"
 title: "OSS Communities and AI"
-date: "2026-02-25 14:00:00"
+date: "2026-02-25 13:25:00"
 ---
 
 Re-arise blog! Arise!

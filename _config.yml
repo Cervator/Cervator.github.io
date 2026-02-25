@@ -107,15 +107,15 @@ author:
   location         : "West Orange, NJ, USA"
   email            : "cervator@gmail.com"
   links:
-    - label: "Website"
+    - label: "Terasology"
       icon: "fas fa-fw fa-link"
       url: "https://terasology.org"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/Cervator"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/Cervator"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/Cervator"
 
 # Site Footer
 footer:
