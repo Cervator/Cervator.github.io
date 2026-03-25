@@ -2,6 +2,9 @@
 layout: "posts"
 title: "Guardian Driven Development"
 date: "2026-03-25 12:00:00"
+header:
+  teaser: /assets/images/BeehallaSmall.png
+  og_image: /assets/images/BeehallaSmall.png
 ---
 
 In my [last post](/2026/02/25/oss-communities-and-ai.html) I mentioned wanting to integrate AI into open source carefully — without pushing it on anyone, without letting it go wild in our repos, and without making the experience worse for contributors who are just trying to learn and ship code. A month later, I have something to show for that intent.
