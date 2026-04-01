@@ -2,10 +2,10 @@
 layout: "posts"
 title: "Bifrost: First Contact"
 date: "2026-04-01 12:00:00"
-image: /assets/images/BifrostFirstContactSmall.png
+image: /assets/images/BeefrostFirstContactSmall.png
 header:
-  teaser: /assets/images/BifrostFirstContactSmall.png
-  og_image: /assets/images/BifrostFirstContactSmall.png
+  teaser: /assets/images/BeefrostFirstContactSmall.png
+  og_image: /assets/images/BeefrostFirstContactSmall.png
 toc: true
 toc_sticky: true
 classes: wide
@@ -17,8 +17,7 @@ I made a soft link between Terasology and Destination Sol - two otherwise indepe
 
 ## Video
 
-<!-- TODO: Replace with real link -->
-{% include video id="Es_1_J-aEUc" provider="youtube" %}
+{% include video id="PnhUTK0CpHw" provider="youtube" %}
 
 That's [Terasology](https://terasology.org/) — an open-source voxel game with over a decade of community history — triggering chat in real time with [Destination Sol](https://destinationsol.org/), a 2D space shooter that has never had multiplayer. Two completely different engines (sharing some libraries, but that's coincidental so far), two different worlds, connected through a shared [Nakama](https://heroiclabs.com/nakama/) server running on a homelab Kubernetes cluster.
 
@@ -28,11 +27,11 @@ This is [Bifrost](https://github.com/SiliconSaga/bifrost) — a cross-game feder
 
 ## How
 
-The "ridiculously ambitious idea" I teased back in February was Bifrost: a protocol for connecting game worlds, inspired by the mythical rainbow bridge between realms in Norse Mythology. It had been [sitting on a shelf for years](/4th-day-of-Xmas) because — honestly — it was too much work for a hobby project running on volunteer time.
+The "ridiculously ambitious idea" I teased back in February was Bifrost: a protocol for connecting game worlds, inspired by the mythical rainbow bridge between realms in Norse Mythology. It had been [sitting on a shelf for years](/4th-day-of-Xmas) because — honestly — it was too much work for a hobby project running on volunteer time, and there were plenty of higher priority needs.
 
 What changed? The rise of the AI era and [GDD](https://siliconsaga.github.io/yggdrasil/gdd/).
 
-The entire Bifrost implementation — Nakama deployment, engine subsystems in both games, integration tests, config systems, chat UI, item linking, the inventory "Beam In/Out" buttons — was built across four sessions. A couple sessions were 3-4 hours running 3 different projects via Claude on 3 different computers in parallel. One was an hour and a half with a toddler on my lap and one hand free. Another stretch happened during a family visit where I pulled out my phone occasionally (during quiet moments!) to review, approve, and guide Claude working on my home machine.
+The entire Bifrost implementation — Nakama deployment, engine subsystems in both games, integration tests, config systems, chat UI, item linking, the inventory "Beam In/Out" buttons — was built across four sessions. A couple sessions were 3-4 hours running 3 different projects via Claude on 3 different computers in parallel (only one was Bifrost). One was an hour and a half with a toddler on my lap and one hand free. Another stretch happened during a family visit where I pulled out my phone occasionally (during quiet moments!) to review, approve, and guide Claude working on my home machine.
 
 That's the thing about GDD that's hard to explain in documentation: it's not about the AI writing code for you. It's about entering a collaborative flow where your judgment steers and the agent executes, and the methodology keeps both of you in sync and tangents organized. The framework improved *itself* during this build — observations became skills, friction became automation, and the housekeeping got tuned through use.
 
@@ -42,9 +41,9 @@ For the curious:
 
 - **Nakama** (an open-source game server) deployed on a local k3d cluster via simple k8s manifests. PostgreSQL for persistence, NodePort services for access.
 
-- **Terasology** got a new optional engine subsystem (`NakamaSubSystem`) following the existing DiscordRPC pattern. It connects via the Nakama Java SDK, bridges Gestalt chat events to a shared Nakama channel, and uses the engine's AutoConfig system for persistent settings. Console commands (`/link`, `/viewitem`, `/materialize`) handle the item linking protocol.
+- **Terasology** got a new optional engine subsystem (`NakamaSubSystem`) following the existing DiscordRPC pattern. It connects via the Nakama Java SDK, bridges Gestalt chat events to a shared Nakama channel, and uses the engine's AutoConfig system for persistent settings. Console commands (`/link`, `/viewitem`, `/materialize`) handle the item linking protocol. [POC PR here](https://github.com/MovingBlocks/Terasology/pull/5319)
 
-- **Destination Sol** got a `NakamaClient` wired into the game loop, a `/say` console command for chat, and — the fun part — **Beam Out** and **Beam In** buttons added directly to the inventory screen. Select an item, click Beam Out, and its metadata flies across the Bifrost to whoever's listening.
+- **Destination Sol** got a `NakamaClient` wired into the game loop, a `/say` console command for chat, and — the fun part — **Beam Out** and **Beam In** buttons added directly to the inventory screen. Select an item, click Beam Out, and its metadata flies across the Bifrost to whoever's listening. [POC PR here](https://github.com/MovingBlocks/DestinationSol/pull/734)
 
 - **The protocol** is straightforward JSON over Nakama's chat channels: `{game, player, text}` for chat, `{game, player, type: "item_link", name, description, price}` for item links. Both games parse the same format and render appropriately — messages in Terasology's chat pane, banners with a dark background in DestSol's HUD.
 
@@ -58,7 +57,7 @@ Bifrost isn't really about two games bridging chat. It's a proof of concept for 
 
 The [overlay architecture](https://siliconsaga.github.io/yggdrasil/getting-started/#how-adoption-works) we built into Yggdrasil means anyone can plug their own community's components into the same workspace. Your games, your services, your configuration — layered on top of a generic foundation. Bifrost is one overlay's answer to "what connects these worlds?" but the workspace pattern itself is game-agnostic.
 
-What if a hundred contributors were working on variations of what Terasology could be — different mods, different servers, different visions? The traditional open source challenge is coordination: how do you avoid going in fifty different directions? The thing I'm starting to wonder is that maybe you *don't* avoid it. Maybe you embrace it. Make it easy to do your own thing, while there's a backbone that lets you interact with other "shards" of the game — and other games entirely.
+What if a hundred contributors were working on variations of what Terasology could be — different mods, different servers, different visions? The traditional open source challenge is coordination: how do you avoid going in fifty different directions? We struggled with that in the past. The thing I'm starting to wonder is that maybe you *don't* avoid it. Maybe you embrace it. Make it easy to do your own thing, while there's a backbone that lets you interact with other "shards" of the game — and other games entirely, while readily sharing lessons learned and tech between the variants.
 
 The age of personalized software is arriving. AI means someone who never thought they could build something now can, even if it is just for their own use and enjoyment. Somewhere somebody is delighted that they made a goofy thing that made their day. Maybe they show a friend or two. I want more of that in the world.
 
@@ -89,5 +88,9 @@ If you want to explore:
 The [issues are open](https://github.com/SiliconSaga/yggdrasil/issues). The methodology is self-improving. The community includes you.
 
 And if nothing else — watch the video again. Two independent games, suddenly linked. Bridged in spare hours by one person and an agent, with a toddler occasionally mashing the keyboard. If that's possible, what else might be?
+
+## Beefrost
+
+To keep with the delightful theme of goofy Norse bees powering creativity. Servers are run by hamsters, as it is known. These help with coding, and make delicious honey too.
 
 [![Beefrost](../assets/images/BeefrostFirstContactSmall.png)](../assets/images/BeefrostFirstContact.png)
