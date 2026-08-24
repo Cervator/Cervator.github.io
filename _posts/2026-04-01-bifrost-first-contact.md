@@ -55,7 +55,7 @@ We also upgraded protobuf across both games (3.x to 4.28.2), fixed a dual-port i
 
 Bifrost is only superficially about two games bridging chat — it's a proof of concept for something larger.
 
-The [overlay architecture](https://siliconsaga.github.io/yggdrasil/getting-started/#how-adoption-works) we built into Yggdrasil means anyone can plug their own community's components into the same workspace. Your games, your services, your configuration — layered on top of a generic foundation. Bifrost is one overlay's answer to "what connects these worlds?" but the workspace pattern itself is game-agnostic.
+The [overlay architecture](https://siliconsaga.github.io/yggdrasil/gdd/realms/) we built into Yggdrasil (since matured into what we now call realms) means anyone can plug their own community's components into the same workspace. Your games, your services, your configuration — layered on top of a generic foundation. Bifrost is one overlay's answer to "what connects these worlds?" but the workspace pattern itself is game-agnostic.
 
 What if a hundred contributors were working on variations of what Terasology could be — different mods, different servers, different visions? The traditional open source challenge is coordination: how do you avoid going in fifty different directions? We struggled with that in the past. I'm starting to wonder if maybe you *don't* avoid it — maybe you embrace it. Make it easy to do your own thing, while there's a backbone that lets you interact with other "shards" of the game — and other games entirely, while readily sharing lessons learned and tech between the variants.
 
@@ -80,7 +80,7 @@ Will it happen soon? Should it even be priority considering other needs in the T
 If you want to explore:
 
 1. [Clone the Yggdrasil workspace](https://siliconsaga.github.io/yggdrasil/getting-started/)
-2. Run `ws overlay init` for the tutorial overlay, or point it at the SiliconSaga community overlay
+2. Run `ws realm init` for the tutorial realm (overlays grew up and got renamed), or adopt the SiliconSaga community realm
 3. `ws clone --all` to pull the games
 4. Start Claude Code, say hello, ask for Mentoring mode
 5. Pick something that interests you and see what happens

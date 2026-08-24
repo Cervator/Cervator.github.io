@@ -59,7 +59,7 @@ That felt like collaboration, not automation. Like a mildly quirky colleague who
 
 On a second workstation, a parallel agent session improved a code review tool — and at one point with my encouragement used that to resolve stale comments on a PR from the first session, which was still going. Two workspaces, two agent sessions, intersecting on real work. It felt like something new.
 
-I've put [session transcripts](https://siliconsaga.github.io/yggdrasil/gdd/samples/) on the docs site, but honestly — they don't do it justice. The magic is in the flow. The best way to understand it is to try it.
+I've put [session transcripts](https://siliconsaga.github.io/yggdrasil/gdd/case-studies/) on the docs site, but honestly — they don't do it justice. The magic is in the flow. The best way to understand it is to try it.
 
 ## Who This is For
 
@@ -90,7 +90,7 @@ If any of this resonates:
 
 The AI will explain the workspace, offer to set up the Thalamus, and walk you through the tools. Pick a component, pick a small task, and see if the flow clicks.
 
-If you want to use GDD with your own projects, the workspace is designed as scaffolding — it wraps your projects without requiring them to adopt any agentic conventions. Clone your repo into `components/`, and the tools and skills just work. No AI config files needed in your project. There's an [overlay architecture](https://siliconsaga.github.io/yggdrasil/getting-started/#how-adoption-works) taking shape for communities that want to share configuration across members and machines, but even today you can fork Yggdrasil and drop your projects in.
+If you want to use GDD with your own projects, the workspace is designed as scaffolding — it wraps your projects without requiring them to adopt any agentic conventions. Clone your repo into `components/`, and the tools and skills just work. No AI config files needed in your project. There's an [overlay architecture](https://siliconsaga.github.io/yggdrasil/gdd/realms/) taking shape (it has since matured into what we now call realms) for communities that want to share configuration across members and machines, but even today you can fork Yggdrasil and drop your projects in.
 
 And if you want to help make GDD better — [the issues are open](https://github.com/SiliconSaga/yggdrasil/issues), the methodology is self-improving, and the community includes you.
 
