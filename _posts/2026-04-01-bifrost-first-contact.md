@@ -33,7 +33,7 @@ What changed? The rise of the AI era and [GDD](https://siliconsaga.github.io/ygg
 
 The entire Bifrost implementation — Nakama deployment, engine subsystems in both games, integration tests, config systems, chat UI, item linking, the inventory "Beam In/Out" buttons — was built across four sessions. A couple sessions were 3-4 hours running 3 different projects via Claude on 3 different computers in parallel (only one was Bifrost). One was an hour and a half with a toddler on my lap and one hand free. Another stretch happened during a family visit where I pulled out my phone occasionally (during quiet moments!) to review, approve, and guide Claude working on my home machine.
 
-That's the thing about GDD that's hard to explain in documentation: it's not about the AI writing code for you. It's about entering a collaborative flow where your judgment steers and the agent executes, and the methodology keeps both of you in sync and tangents organized. The framework improved *itself* during this build — observations became skills, friction became automation, and the housekeeping got tuned through use.
+That's the part of GDD that's hard to explain in documentation: the AI writing code is honestly the least of it. You enter a collaborative flow where your judgment steers and the agent executes, and the methodology keeps both of you in sync and tangents organized. The framework improved *itself* during this build — observations became skills, friction became automation, and the housekeeping got tuned through use.
 
 ## Okay but Technically
 
@@ -49,15 +49,15 @@ For the curious:
 
 - **Integration tests** run against the live Nakama server, proving auth, channel join, and message delivery at the SDK level before the games even launch.
 
-We also upgraded protobuf across both games (3.x to 4.28.2), fixed a dual-port issue in the Nakama Java SDK (gRPC for API, WebSocket for realtime — a fun discovery), and sorted out Java 8 compatibility constraints in DestSol. Real engineering problems, solved collaboratively.
+We also upgraded protobuf across both games (3.x to 4.28.2), fixed a dual-port issue in the Nakama Java SDK (gRPC for API, WebSocket for realtime — a fun discovery), and sorted out Java 8 compatibility constraints in DestSol. Plenty of real engineering problems along the way!
 
 ## The Bigger Picture
 
-Bifrost isn't really about two games bridging chat. It's a proof of concept for something larger.
+Bifrost is only superficially about two games bridging chat — it's a proof of concept for something larger.
 
 The [overlay architecture](https://siliconsaga.github.io/yggdrasil/getting-started/#how-adoption-works) we built into Yggdrasil means anyone can plug their own community's components into the same workspace. Your games, your services, your configuration — layered on top of a generic foundation. Bifrost is one overlay's answer to "what connects these worlds?" but the workspace pattern itself is game-agnostic.
 
-What if a hundred contributors were working on variations of what Terasology could be — different mods, different servers, different visions? The traditional open source challenge is coordination: how do you avoid going in fifty different directions? We struggled with that in the past. The thing I'm starting to wonder is that maybe you *don't* avoid it. Maybe you embrace it. Make it easy to do your own thing, while there's a backbone that lets you interact with other "shards" of the game — and other games entirely, while readily sharing lessons learned and tech between the variants.
+What if a hundred contributors were working on variations of what Terasology could be — different mods, different servers, different visions? The traditional open source challenge is coordination: how do you avoid going in fifty different directions? We struggled with that in the past. I'm starting to wonder if maybe you *don't* avoid it — maybe you embrace it. Make it easy to do your own thing, while there's a backbone that lets you interact with other "shards" of the game — and other games entirely, while readily sharing lessons learned and tech between the variants.
 
 The age of personalized software is arriving. AI means someone who never thought they could build something now can, even if it is just for their own use and enjoyment. Somewhere somebody is delighted that they made a goofy thing that made their day. Maybe they show a friend or two. I want more of that in the world.
 
@@ -85,7 +85,7 @@ If you want to explore:
 4. Start Claude Code, say hello, ask for Mentoring mode
 5. Pick something that interests you and see what happens
 
-The [issues are open](https://github.com/SiliconSaga/yggdrasil/issues). The methodology is self-improving. The community includes you.
+The [issues are open](https://github.com/SiliconSaga/yggdrasil/issues), the methodology is self-improving, and the community includes you.
 
 And if nothing else — watch the video again. Two independent games, suddenly linked. Bridged in spare hours by one person and an agent, with a toddler occasionally mashing the keyboard. If that's possible, what else might be?
 

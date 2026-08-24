@@ -17,19 +17,17 @@ In my [last post](/oss-communities-and-ai/) I mentioned wanting to integrate AI 
 
 [Guardian Driven Development](https://siliconsaga.github.io/yggdrasil/gdd/) is a methodology for human-AI collaboration. It wraps existing dev practices — BDD, TDD, code review, etc — in a layer of structured guidance that adapts to who you are, what you're doing, and how much time you have. It also adds utility and AI tooling to help make agentic development safer and more transparent.
 
-But that's the technical pitch, and it misses the point.
-
-The real reason I built GDD is that I'm concerned about people.
+That's the technical pitch though, and it kind of misses the point — the real reason I built GDD is that I'm concerned about people.
 
 ## The Junior Engineer Problem
 
-We're in the early days of what I think will be a genuine social shift. AI agents are getting remarkably capable at writing code (among other things, including drafting blogs), and the world's response has been... complicated (prior blog covers that some). Tools like [Gas Town](https://gastownhall.ai/) amazingly let a single person orchestrate whole teams of agents. That's impressive, and I love both these efforts and how they enable individuals to build really cool things. I especially am thrilled to see people simply have fun doing things they couldn't do before - even if they only do it for themselves rather than try to become the first [solopreneur unicorn](https://www.fastcompany.com/91447642/how-close-is-the-first-solopreneur-unicorn).
+We're in the early days of what I think will be a genuine social shift. AI agents are getting remarkably capable at writing code (among other things, including drafting blogs), and the world's response has been... complicated (prior blog covers that some). Tools like [Gas Town](https://gastownhall.ai/) amazingly let a single person orchestrate whole teams of agents. That's impressive, and I love both these efforts and how they enable individuals to build really cool things. I'm especially thrilled to see people simply have fun doing things they couldn't do before - even if they only do it for themselves rather than try to become the first [solopreneur unicorn](https://www.fastcompany.com/91447642/how-close-is-the-first-solopreneur-unicorn).
 
 But it optimizes for throughput. The AI is an amplifier — you point it at a problem, it churns. What it doesn't necessarily do is help anyone *learn* or work better together. The [Wasteland](https://steve-yegge.medium.com/welcome-to-the-wasteland-a-thousand-gas-towns-a5eb9bc8dc1f) aims to link Gas Towns together, but again somewhat primarily to align a thousand individual fire hoses in desired direction(s).
 
 Meanwhile, the [traditional path for junior engineers is evaporating](https://stackoverflow.blog/2025/12/26/ai-vs-gen-z/). Code review from senior devs? They're busy prompting agents, and there's so much more to review now anyway. Pair programming? Why pair with a human when the AI is faster? Mentorship? But all you need is to [ask Claude to do it, right](https://dev.to/the_nortern_dev/the-junior-developer-is-extinct-and-we-are-creating-a-disaster-3jh2)? Why ever hire juniors?
 
-I've watched this happen in open source too. Terasology has been a learning ground for hundreds of contributors over the years — many of them [students](https://summerofcode.withgoogle.com/archive/2019/organizations/5741667284418560), hobbyists, first-time coders. The thing that made it work wasn't the code; it was the community of people willing to explain, guide, and be patient. AI shouldn't replace that. It should *augment* that. So far it has mostly been well-intentioned but misplaced PR firehosing, especially for popular projects.
+I've watched this happen in open source too. Terasology has been a learning ground for hundreds of contributors over the years — many of them [students](https://summerofcode.withgoogle.com/archive/2019/organizations/5741667284418560), hobbyists, first-time coders. What made it work wasn't really the code — it was the community of people willing to explain, guide, and be patient. AI shouldn't replace that. It should *augment* that. So far it has mostly been well-intentioned but misplaced PR firehosing, especially for popular projects.
 
 [![FirehosePRs](../assets/images/FirehosePRsSmall.png)](../assets/images/FirehosePRs.png)
 
@@ -53,7 +51,7 @@ So GDD has:
 
 ## The Part I Can't Put in Docs
 
-The [Yggdrasil documentation site](https://siliconsaga.github.io/yggdrasil/) tries to covers all this, although of course it is a work in progress. What it can't convey is the *feel*.
+The [Yggdrasil documentation site](https://siliconsaga.github.io/yggdrasil/) tries to cover all this, although of course it is a work in progress. What it can't convey is the *feel*.
 
 In my first real GDD session, I spent hours brainstorming, implementing, iterating on reviewer feedback across two PRs, running a first-ever housekeeping audit — and at one point I was writing stray thoughts in the Thalamus while the agent worked on something else, then I wandered off. The agent noticed the update. It responded. When I came back, there was a thoughtful reply and an option to integrate it into the next step.
 
@@ -100,7 +98,7 @@ And if you want to help make GDD better — [the issues are open](https://github
 
 I get it, in many ways these times are dark. But harking back to my mention of Gas Town another facet I just love is the unbridled enthusiasm and indeed optimism some people are putting into creating cool new things. Because agentic engineering now means they can! Rather than ideas waiting forever on a dusty todo list, or being doomed to a slow purgatory approach for when you can find long extended periods of focus time.
 
-An especially fun new concept I see spreading is using image generation to build a "theme" for your project(s) and then making new ones for blogs and documentation. They can be absolutely awesome, utter nightmare fuel, and everything in between. They often have (sometime serious) quirks that clearly mark them as "That's so AI!" as the kids say nowadays - but that's OK! In that little corner of the internet it is just a bit of amusement, that wouldn't otherwise exist. There's some value to that.
+An especially fun new concept I see spreading is using image generation to build a "theme" for your project(s) and then making new ones for blogs and documentation. They can be absolutely awesome, utter nightmare fuel, and everything in between. They often have (sometimes serious) quirks that clearly mark them as "That's so AI!" as the kids say nowadays - but that's OK! In that little corner of the internet it is just a bit of amusement, that wouldn't otherwise exist. There's some value to that.
 
 So here's mine, which was inspired by the [larger SiliconSaga ecosystem full of infra projects](https://github.com/SiliconSaga) named after Norse mythology, mixed with the thought of "What if they were all bees?" - because why not? Welcome to Beehalla!
 
